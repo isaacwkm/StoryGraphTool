@@ -1,58 +1,88 @@
 {
-    "Title": "Campus Life on the West Side",
-    "Credits": "Created by Adam Smith (amsmith@ucsc.edu).",
-    "InitialLocation": "Kresge",
+    "Title": "Trapped in the Spirit Realm",
+    "Credits": "Created by Isaac Kim (iswkim@ucsc.edu)",
+    "InitialLocation": "Foothills",
     "Locations": {
-        "Kresge": {
-            "Body": "This is Kresge College, lots of nice trees.",
+        "Foothills": {
+            "Body": "You wake up surrounded by a misty fog with towering hills peaking through the clouds.<br>The air is thin, and droplets of mist form into beads of water on your skin.<br>Up ahead there are three giant shadows looming on top of the hills.",
             "Choices": [
                 {
-                    "Text": "South",
-                    "Target": "Porter"
+                    "Text": "Move up",
+                    "Target": "Courtyard"
                 }
             ]
         },
-        "Porter": {
-            "Body": "This is Porter College, the trees are nice here too.",
+        "Courtyard": {
+            "Body": "You move forward up the hills and reach what looks to be a dilapidated courtyard.<br>There are rotten trees, roots, and vines in a twist.<br>Up ahead and to the left and right, tall statues resembling animals stand as shadows within the mist.",
             "Choices": [
                 {
-                    "Text": "North",
-                    "Target": "Kresge"
+                    "Text": "Rest: take a moment to rest",
+                    "Target": "The Sights of the Courtyard"
                 },
                 {
-                    "Text": "South",
-                    "Target": "Rachel Carson"
-                }
-            ]
-        },
-        "Rachel Carson": {
-            "Body": "Rachel Carson College, more sun and fewer trees.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Porter"
+                    "Text": "Forward: towards the fox statue",
+                    "Target": "Fox Statue",
+                    "Locked": true,
+                    "LockedMessage": "The gates to the fox statue are closed shut.",
+                    "LockedChoice": {"Text": "...", "Target": "Courtyard"}
                 },
                 {
-                    "Text": "South",
-                    "Target": "Oakes"
-                }
-            ]
-        },
-        "Oakes": {
-            "Body": "Oakes College, even the buildings have tree bark on them.",
-            "Choices": [
-                {
-                    "Text": "North",
-                    "Target": "Rachel Carson"
+                    "Text": "Right: towards the cat statue",
+                    "Target": "Cat Statue",
+                    "Unlocks": {"Target": 3, "In": "Courtyard"}
                 },
                 {
-                    "Text": "South",
-                    "Target": "Beyond"
+                    "Text": "Left: towards the dog statue",
+                    "Target": "Dog Statue",
+                    "Locked": true,
+                    "LockedMessage": "The gates to the dog statue are blocked by a huge bone.",
+                    "LockedChoice": {"Text": "...", "Target": "Courtyard"},
+                    "Unlocks": {"Target": 1, "In": "Courtyard"}
                 }
             ]
         },
-        "Beyond": {
-            "Body": "Grass, don't forget to check for ticks!"
+        "The Sights of the Courtyard": {
+            "Body": "Perhaps it was once used to host celebrations and rituals of tradition.<br>Now, what remains is broken cobblestones and rotting wooden arches.",
+            "Choices": [
+                {
+                    "Text": "Get up",
+                    "Target": "Courtyard"
+                }
+            ]
+        },
+        "Fox Statue": {
+            "Body": "A giant fox statue stands ahead of you. A sign reads: \"In order to proceed,<br>One must find the life's key.<br>The giant dog to the west<br>Held what I considered my fee.\"",
+            "Choices": [
+                {
+                    "Text": "Thank the fox and Move on",
+                    "Target": "Summit"
+                }
+            ]
+        },
+        "Summit": {
+            "Body": "You've reached the summit of the mountain.\nThe winds start to rise and it takes you up in the air! The skies start to clear and you are now free!"
+        },
+        "Cat Statue": {
+            "Key": "Dog Statue",
+            "Body": "A Lucky cat-goyle springs to life and shouts: \n\"The doors to this realm are all sealed shut! Seek the dog for wisdom, but he demands an act of love in exchange!\"",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Courtyard"
+                }
+            ]
+        },
+        "Dog Statue": {
+            "Body": "A Large stone dog lies before you. It seems eager to receive a headpat.",
+            "Choices": [
+                {
+                    "Mechanism": "Pet the dog",
+                    "MechanismOutput": "The dog wags its tail and runs over to the fox gate towards the courtyard...",
+                    "Text": "Pet the dog",
+                    "Target": "Courtyard"
+                }
+            ]
+            
         }
     }
 }
